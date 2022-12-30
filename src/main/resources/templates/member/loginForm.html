@@ -18,7 +18,7 @@
 </header>
 
 <main class="container">
-    <form action="/member/join">
+    <form>
         <div class="form-group">
             <label for="username">Username:</label>
             <input type="text" class="form-control" placeholder="Enter username" id="username">
@@ -32,13 +32,15 @@
                 <input class="form-check-input" type="checkbox"> Remember me
             </label>
         </div>
-        <button type="submit" class="btn btn-primary">로그인</button>
     </form>
+        <button id="btn-login" class="btn btn-primary">로그인</button>
 </main>
 
 <footer th:replace="~{/layout/footer :: footer}" id="footer">
     <hr>
     푸터 삽입부
 </footer>
+
+<script src="/blog/js/member.js"></script>
 </body>
 </html>

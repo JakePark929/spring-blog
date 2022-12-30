@@ -2,7 +2,6 @@ package com.jake.blog.service;
 
 import com.jake.blog.domain.Member;
 import com.jake.blog.repository.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,5 +24,10 @@ public class MemberService {
             System.out.println("MemberService.signUp: " + e.getMessage());
         }
         return -1;
+    }
+
+    @Transactional(readOnly = true) // select 할 때 transaction 시작, 서비스 종료시에 트랜잭션 종료 (정합성)
+    public Member login(Member member) {
+        return memberRepository.findByUsernameAndPassword(member.getUsername(), member.getPassword());
     }
 }

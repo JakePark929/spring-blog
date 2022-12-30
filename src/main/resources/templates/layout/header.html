@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--<html lang="ko" xmlns:th="http://www.thymeleaf.org">-->
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Header template</title>
@@ -13,12 +12,27 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
+            <ul th:if="${session.principal == null}" class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="/blog/member/loginForm">로그인</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/blog/member/joinForm">회원가입</a>
+                </li>
+            </ul>
+            <ul th:if="${session.principal}" class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog/board/writeForm">글쓰기</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog/member/memberForm">회원정보</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog/member/logout">로그아웃</a>
+                </li>
+                <li>
+                    <span th:text="${session.principal.getUsername()}"></span>
+                    <span>님, 환영합니다.</span>
                 </li>
             </ul>
         </div>
