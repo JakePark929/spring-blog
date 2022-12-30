@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!--script 는 body 가 끝나는 제일 아래에 넣음-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<header th:replace="~{/layout/header :: header}" id="header">
+    헤더 삽입부
+    <hr>
+</header>
+
+<main class="container">
+    <div class="card m-2">
+        <!--        <img class="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar1.png" alt="Card image">-->
+        <div class="card-body">
+            <h4 class="card-title">Title</h4>
+<!--            <p class="card-text">Content</p>-->
+            <a href="#" class="btn btn-primary">Show Detail</a>
+        </div>
+    </div>
+
+    <div class="card m-2">
+        <div class="card-body">
+            <h4 class="card-title">Title</h4>
+<!--            <p class="card-text">Content</p>-->
+            <a href="#" class="btn btn-primary">Show Detail</a>
+        </div>
+    </div>
+
+    <div class="card m-2">
+        <div class="card-body">
+            <h4 class="card-title">Title</h4>
+<!--            <p class="card-text">Content</p>-->
+            <a href="#" class="btn btn-primary">Show Detail</a>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{/layout/footer :: footer}" id="footer">
+    <hr>
+    푸터 삽입부
+</footer>
+</body>
+</html>
+
+
+

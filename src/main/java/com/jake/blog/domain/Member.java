@@ -17,7 +17,7 @@ public class Member {
     @Id // PrimaryKey
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 프로젝트에서 연결된 DB의 넘버링 전략을 따라 간다.
     private Long id; // 시퀀스, auto_increment
-    @Setter @Column(nullable = false, length = 30) private String username; // 이메일
+    @Setter @Column(nullable = false, length = 30, unique = true) private String username; // 이메일
     @Setter @Column(nullable = false, length = 100) private String password; // 해쉬로 변경하여 암호화 예정
     @Setter @Column(nullable = false, length = 50) private String email; // springPhysical 전략 - snake_case 로 변경, 그냥 physical - camelCase
 
