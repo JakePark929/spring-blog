@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 
@@ -15,10 +16,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf().disable()
+                .csrf().disable()// csrf 토큰 비활성화(테스트 시 걸어두는게 좋음)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/auth/**"
+                                "/" , "/auth/**",
+                                "/js/**" ,"/css/**" ,"/image"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
@@ -26,5 +28,10 @@ public class SecurityConfig {
                     .loginPage("/auth/loginForm")
                 .and()
                 .build();
+    }
+
+    @Bean // IoC가 됨!
+    public BCryptPasswordEncoder encodePwd() {
+        return new BCryptPasswordEncoder();
     }
 }
