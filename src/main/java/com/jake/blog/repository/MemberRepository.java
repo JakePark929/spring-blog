@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface MemberRepository extends JpaRepository<Member, Long> {
     // Jpa Naming 쿼리
     // SELECT * FROM user WHERE username = ?1 AND password =?2;
-    Member findByUsernameAndPassword(String username, String password);
+//    Member findByUsernameAndPassword(String username, String password);
 
 //    @Query(value = "SELECT * FROM user WHERE username = ?1 AND password =?2", nativeQuery = true)
 //    Member login(String username, String password);
