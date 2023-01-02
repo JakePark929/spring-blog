@@ -18,30 +18,21 @@
 </header>
 
 <main class="container">
-    <div class="card m-2">
-        <!--        <img class="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar1.png" alt="Card image">-->
+    <div class="card m-2" th:each="board : ${boards}">
         <div class="card-body">
-            <h4 class="card-title">Title</h4>
-<!--            <p class="card-text">Content</p>-->
-            <a href="#" class="btn btn-primary">Show Detail</a>
+            <h4 class="card-title" th:text="${board.title}">Title</h4>
+            <a th:href="@{/board/{id}(id=${board.id})}" class="btn btn-primary">Show Detail</a>
         </div>
     </div>
 
-    <div class="card m-2">
-        <div class="card-body">
-            <h4 class="card-title">Title</h4>
-<!--            <p class="card-text">Content</p>-->
-            <a href="#" class="btn btn-primary">Show Detail</a>
-        </div>
-    </div>
-
-    <div class="card m-2">
-        <div class="card-body">
-            <h4 class="card-title">Title</h4>
-<!--            <p class="card-text">Content</p>-->
-            <a href="#" class="btn btn-primary">Show Detail</a>
-        </div>
-    </div>
+    <ul class="pagination justify-content-center">
+        <li th:class="'page-item'+(${boards.first}? ' disabled' : '')">
+            <a class="page-link" th:href="@{/(page=${(boards.number)-1})}">Previous</a>
+        </li>
+        <li th:class="'page-item'+(${boards.last}? ' disabled' : '')">
+            <a class="page-link" th:href="@{/(page=${(boards.number)+1})}">Next</a>
+        </li>
+    </ul>
 </main>
 
 <footer th:replace="~{/layout/footer :: footer}" id="footer">
