@@ -29,3 +29,6 @@ spring:
       fail-on-empty-beans: false
 
   thymeleaf3.decoupled-logic: true
+
+cos:
+  key: 1234

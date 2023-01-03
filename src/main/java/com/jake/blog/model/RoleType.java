@@ -1,4 +1,4 @@
-package com.jake.blog.domain;
+package com.jake.blog.model;
 
 // 데이터 도메인을 만들 때 사용
 // 데이터의 범위(ex. 남자, 여자 ...)

@@ -28,9 +28,10 @@
     <button class="btn btn-secondary" onclick="history.back()">돌아가기</button>
     <span th:if="${#authentication.name}==${board.member.username}">
 <!--         <a th:href="@{/board/{id}/updateForm(id=${board.id})}">-->
-<!--            <button class="btn btn-warning">수정</button>-->
-<!--         </a>-->
-        <button th:onclick="|location.href='@{/board/{id}/updateForm(id=${board.id})}'|" class="btn btn-warning">수정</button>
+        <!--            <button class="btn btn-warning">수정</button>-->
+        <!--         </a>-->
+        <button th:onclick="|location.href='@{/board/{id}/updateForm(id=${board.id})}'|"
+                class="btn btn-warning">수정</button>
         <button id="btn-board-delete" class="btn btn-danger" sec:auth>삭제</button>
     </span>
     <br/><br/>
@@ -49,6 +50,27 @@
         <div th:utext="${board.content}" id="content"></div>
     </div>
     <hr/>
+
+    <div class="card">
+        <div class="card-body"><textarea class="form-control" rows="1"></textarea></div>
+        <div class="card-footer">
+            <button class="btn btn-primary">등록</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">댓글 리스트</div>
+        <ul id="comment--box" class="list-group">
+            <li id="comment--1" class="list-group-item d-flex justify-content-between" th:each="reply : ${board.replies}">
+                <div th:text="${reply.content}">댓글 내용입니다.</div>
+                <div class="d-flex">
+                    <div class="font-italic">작성자:</div>&nbsp;
+                    <div class="font-italic" th:text="${reply.member.username}">jake</div>&nbsp;
+                    <button class="badge">삭제</button>
+                </div>
+            </li>
+        </ul>
+    </div>
 </main>
 
 <footer th:replace="~{/layout/footer :: footer}" id="footer">

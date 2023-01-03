@@ -1,5 +1,6 @@
 package com.jake.blog.domain;
 
+import com.jake.blog.model.RoleType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

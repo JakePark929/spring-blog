@@ -1,9 +1,8 @@
 package com.jake.blog.controller;
 
 import com.jake.blog.domain.Member;
-import com.jake.blog.domain.RoleType;
+import com.jake.blog.model.RoleType;
 import com.jake.blog.repository.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,8 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Supplier;
 
 @RestController // html 파일이 아니라 data 를 리턴해주는 controller
 public class DummyControllerTest {

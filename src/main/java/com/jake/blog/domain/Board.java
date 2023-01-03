@@ -37,7 +37,7 @@ public class Board {
 
     // JoinColumn 은 foreign key 를 만들어 줌, mappedBy DB에 칼럼을 만들지 마세요
     @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // One = Board to Many Reply, 많기 때문에 Lazy Type(default)
-    private List<Reply> reply;
+    private List<Reply> replies;
 
     @CreationTimestamp
     private Timestamp createDate;
