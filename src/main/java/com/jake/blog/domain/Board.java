@@ -1,5 +1,6 @@
 package com.jake.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -36,7 +37,9 @@ public class Board {
     private Member member; // DB는 오브젝트를 저장할 수 없다. FK, 자바는 오브젝트를 저장할 수 있다.
 
     // JoinColumn 은 foreign key 를 만들어 줌, mappedBy DB에 칼럼을 만들지 마세요
-    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // One = Board to Many Reply, 많기 때문에 Lazy Type(default)
+    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) // One = Board to Many Reply, 많기 때문에 Lazy Type(default)
+    @JsonIgnoreProperties({"board"}) // ★ get 할 때 무한 참조를 방지해 줌
+    @OrderBy("id desc")
     private List<Reply> replies;
 
     @CreationTimestamp
